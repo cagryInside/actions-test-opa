@@ -1,3 +1,3 @@
 .PHONY: test
 test:
-	./test_opa.sh
+	 /opt/opa/bin/opa test -vv --timeout 30s ./tests/ ./files/
