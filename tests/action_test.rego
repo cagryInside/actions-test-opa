@@ -5,5 +5,5 @@ test_default {
 }
 
 test_default_fail {
-    not data.actions.test.hello
+    data.actions.test.hello
 }
