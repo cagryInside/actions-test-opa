@@ -12,8 +12,8 @@ jobs:
       run: echo Running tests on Opa policy files and capability files
     - name: Download and configure opa
       run: |
-        sudo curl -s https://api.github.com/repos/open-policy-agent/opa/releases/latest | grep browser_download_url | grep opa_linux_amd64 | cut -d '"' -f 4 | wget -qi - -P /opt/opa/bin/
-        sudo mv /opt/opa/bin/opa_linux_amd64 /opt/opa/bin/opa
+        curl -s https://api.github.com/repos/open-policy-agent/opa/releases/latest | grep browser_download_url | grep opa_linux_amd64 | cut -d '"' -f 4 | wget -qi - -P /opt/opa/bin/
+        mv /opt/opa/bin/opa_linux_amd64 /opt/opa/bin/opa
         chmod +x /opt/opa/bin/opa
     - name: Run make test
       run: make test
