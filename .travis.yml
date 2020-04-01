@@ -1,0 +1,18 @@
+language: python
+python:
+    - 3.6
+install:
+    # Download OPA - Curl flags explained
+    # -s silent
+    # -L to follow the 302 to the actual file download
+    # --create-dirs to create the /opt/opa/bin/ folder structure
+    # -o to specify the output file
+    - curl -s -L --create-dirs -o /opt/opa/bin/opa https://github.com/open-policy-agent/opa/releases/download/v0.18.0/opa_linux_amd64    # Make it executable
+    - chmod +x /opt/opa/bin/opa
+    # Just verify that the binary is good and the download worked
+    - /opt/opa/bin/opa version
+    # Install tox, to run the tests
+    - pip install tox
+script:
+    # Run the tests
+    - make test
