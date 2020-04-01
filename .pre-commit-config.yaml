@@ -1,0 +1,29 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: check-capabilities
+        name: check-capabilities
+        language: python
+        entry: python ./tools/test_bla.py
+        files: 'yamls/*'
+        additional_dependencies: ['pyyaml', 'jsonschema']
+-   repo: https://gitlab.com/pycqa/flake8
+    rev: 3.7.7
+    hooks:
+    -   id: flake8
+-   repo: https://github.com/pre-commit/pre-commit-hooks.git
+    rev: v2.2.3
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml # Validates the format of the yaml file and checks for duplicate keys
+    -   id: debug-statements
+    -   id: name-tests-test
+    -   id: check-added-large-files
+    -   id: check-byte-order-marker
+    -   id: fix-encoding-pragma
+        args: [--remove]
+    -   id: requirements-txt-fixer
+    -   id: detect-aws-credentials
+        args: ['--allow-missing-credentials']
+    -   id: detect-private-key

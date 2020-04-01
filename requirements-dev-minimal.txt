@@ -1,0 +1,6 @@
+coverage
+flake8
+jsonschema
+pre-commit
+pytest
+requirements-tools
